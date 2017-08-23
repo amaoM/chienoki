@@ -1,0 +1,53 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.6.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile("org.springframework.boot:spring-boot-starter-batch")
+	runtime('mysql:mysql-connector-java')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+def dependJarCopyTo = 'dependencies'
+
+task delDependJar {
+	doLast {
+	    delete dependJarCopyTo
+	}
+}
+
+task getDependJar(dependsOn: delDependJar) {
+    doLast {
+        configurations.compile.each {
+            def fromJarFile = it.absolutePath
+            copy {
+                from fromJarFile
+                into dependJarCopyTo
+            }
+        }
+        FileCollection copyFiles = files { file(dependJarCopyTo).listFiles() }
+        copyFiles.each {File file -> println file.name}
+    } 
+} 

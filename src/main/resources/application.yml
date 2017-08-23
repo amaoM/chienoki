@@ -1,0 +1,29 @@
+spring:
+  profiles:
+    active: development
+    
+---
+
+spring:
+  profiles: development
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://localhost:3306/chienoki?useSSL=false&useUnicode=true&characterEncoding=utf8
+    username: chienoki
+    password: M@127a@913
+    driver-class-name: com.mysql.jdbc.Driver
+
+---
+
+spring:
+  profiles: production
+  jpa:
+    hibernate:
+      ddl-auto: none
+  datasource:
+    url: jdbc:mysql://localhost:3306/chienoki?useSSL=false
+    username: chienoki
+    password: M@127a@913
+    driver-class-name: com.mysql.jdbc.Driver
