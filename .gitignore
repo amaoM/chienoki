@@ -3,6 +3,7 @@
 !gradle/wrapper/gradle-wrapper.jar
 /dependencies/
 Vagrantfile
+.vagrant
 
 ### STS ###
 .apt_generated

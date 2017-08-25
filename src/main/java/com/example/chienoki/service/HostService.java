@@ -1,0 +1,31 @@
+package com.example.chienoki.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+
+import com.example.chienoki.domain.Host;
+import com.example.chienoki.domain.HostRepository;
+
+public class HostService {
+	@Autowired
+	HostRepository hostRepository;
+	
+	public List<Host> getPage(int pageNumber) {
+		PageRequest request = new PageRequest(pageNumber - 1, 3, Sort.Direction.ASC, "id");
+		return hostRepository.findAll(request).getContent();
+	}
+	
+	public void saveHost(String name, String url) {
+		Host host = new Host();
+		host.setName(name);
+		host.setUrl(url);
+		hostRepository.save(host);
+	}
+	
+	public void deleteHost(Long id) {
+		hostRepository.delete(id);
+	}
+}

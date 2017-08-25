@@ -18,4 +18,8 @@ public class ArticleService {
 		PageRequest request = new PageRequest(pageNumber - 1, 3, Sort.Direction.ASC, "id");
 		return articleRepository.findAll(request).getContent();
 	}
+	
+	public void deleteArticle(Long articleId) {
+		articleRepository.delete(articleId);
+	}
 }

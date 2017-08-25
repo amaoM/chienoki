@@ -20,7 +20,7 @@ public class Host {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private Long id;
 	
 	@Column(length = 100, nullable = false)
 	private String name;
@@ -38,14 +38,14 @@ public class Host {
 	@Column(nullable = false, columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
 	private Date updated;
 	
-	@OneToMany(mappedBy = "host")
+	@OneToMany(mappedBy = "host", orphanRemoval=true)
 	private List<Article> artciles;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

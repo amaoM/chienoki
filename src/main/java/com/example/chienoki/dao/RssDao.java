@@ -8,6 +8,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.transaction.annotation.Transactional;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -27,6 +28,7 @@ public class RssDao {
 	@Autowired
 	ArticleRepository articleRepository;
 	
+	@Scheduled(cron = "*/10 * * * *", zone = "Asia/Tokyo")
 	public void registerArticlesFromRss() throws ParserConfigurationException, SAXException, IOException {
 		Iterable<Host> hosts = getHosts();
 		

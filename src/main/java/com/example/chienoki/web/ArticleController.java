@@ -19,4 +19,9 @@ public class ArticleController {
 	public @ResponseBody Iterable<Article> getArticles(@RequestParam(name = "p", defaultValue = "1") int pageNumber) {
 		return articleService.getPage(pageNumber);
 	}
+	
+	@RequestMapping(value = "/articles/delete", method = RequestMethod.GET)
+	public void deleteArticle(@RequestParam(name = "id") Long articleId) {
+		articleService.deleteArticle(articleId);
+	}
 }
