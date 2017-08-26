@@ -1,4 +1,4 @@
-package com.example.chienoki.web;
+package com.example.chienoki.app.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.chienoki.app.service.HostService;
 import com.example.chienoki.domain.Host;
-import com.example.chienoki.service.HostService;
 
 @Controller
 public class HostController {

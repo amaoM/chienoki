@@ -3,9 +3,9 @@ package com.example.chienoki;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.example.chienoki.dao.RssDao;
-import com.example.chienoki.service.ArticleService;
-import com.example.chienoki.service.HostService;
+import com.example.chienoki.app.service.ArticleService;
+import com.example.chienoki.app.service.HostService;
+import com.example.chienoki.batch.dao.RssDao;
 
 @Configuration
 public class AppConfig {

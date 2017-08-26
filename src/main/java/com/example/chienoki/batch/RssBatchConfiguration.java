@@ -10,12 +10,11 @@ import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.annotation.Scheduled;
 
-import com.example.chienoki.dao.RssDao;
+import com.example.chienoki.batch.dao.RssDao;
 
-@Configuration
 @EnableBatchProcessing
+@Configuration
 public class RssBatchConfiguration {
 	
 	@Autowired
@@ -27,6 +26,10 @@ public class RssBatchConfiguration {
 	@Autowired
 	private RssDao rssDao;
 		
+	public void perform() {
+		
+	}
+	
 	@Bean
 	public Job job() {
 		return jobs.get("articleImportJob")
@@ -39,7 +42,6 @@ public class RssBatchConfiguration {
 	public Step step1() {
 		return steps.get("step1")
 				.tasklet((stepContribution, chunkContext) -> {
-					System.out.println(" === RssBatch Started ===");
 					rssDao.registerArticlesFromRss();
 					return RepeatStatus.FINISHED;
 				}).build();

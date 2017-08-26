@@ -1,4 +1,4 @@
-package com.example.chienoki.service;
+package com.example.chienoki.app.service;
 
 import java.util.List;
 

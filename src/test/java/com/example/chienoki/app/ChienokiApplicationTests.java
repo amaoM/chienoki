@@ -1,4 +1,4 @@
-package com.example.chienoki;
+package com.example.chienoki.app;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

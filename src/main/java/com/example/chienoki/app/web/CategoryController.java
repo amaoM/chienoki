@@ -1,4 +1,4 @@
-package com.example.chienoki.web;
+package com.example.chienoki.app.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

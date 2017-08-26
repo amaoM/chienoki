@@ -1,14 +1,12 @@
-package com.example.chienoki.dao;
+package com.example.chienoki.batch.dao;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.transaction.annotation.Transactional;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -28,7 +26,6 @@ public class RssDao {
 	@Autowired
 	ArticleRepository articleRepository;
 	
-	@Scheduled(cron = "*/10 * * * *", zone = "Asia/Tokyo")
 	public void registerArticlesFromRss() throws ParserConfigurationException, SAXException, IOException {
 		Iterable<Host> hosts = getHosts();
 		
@@ -82,7 +79,8 @@ public class RssDao {
 			article.setTitle(title);
 			article.setLink(link);
 			article.setDescription(description);
-			Article r = articleRepository.save(article);
+			Article savedArticle = articleRepository.save(article);
+			System.out.println(" === Saved article's id is " + savedArticle.getId().toString());
 		}
 	}
 }
