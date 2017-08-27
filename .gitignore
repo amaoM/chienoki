@@ -1,9 +1,10 @@
 .gradle
-/build/
 !gradle/wrapper/gradle-wrapper.jar
+/build/
 /dependencies/
 Vagrantfile
 .vagrant
+*.class
 
 ### STS ###
 .apt_generated
