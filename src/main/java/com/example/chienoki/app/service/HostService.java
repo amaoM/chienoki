@@ -1,7 +1,5 @@
 package com.example.chienoki.app.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -16,7 +14,7 @@ public class HostService {
 	@Autowired
 	HostRepository hostRepository;
 	
-	public List<Host> getPage(int pageNumber) {
+	public Iterable<Host> getPage(int pageNumber) {
 		PageRequest request = new PageRequest(pageNumber - 1, 3, Sort.Direction.ASC, "id");
 		return hostRepository.findAll(request).getContent();
 	}
