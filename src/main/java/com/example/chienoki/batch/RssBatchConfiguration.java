@@ -45,5 +45,5 @@ public class RssBatchConfiguration {
 					rssDao.registerArticlesFromRss();
 					return RepeatStatus.FINISHED;
 				}).build();
-	}
+	}	
 }

@@ -7,6 +7,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -18,6 +19,7 @@ import com.example.chienoki.domain.ArticleRepository;
 import com.example.chienoki.domain.Host;
 import com.example.chienoki.domain.HostRepository;
 
+@Component
 public class RssDao {
 	
 	@Autowired

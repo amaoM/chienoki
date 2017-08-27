@@ -5,10 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Component;
 
 import com.example.chienoki.domain.Article;
 import com.example.chienoki.domain.ArticleRepository;
 
+@Component
 public class ArticleService {
 
 	@Autowired
