@@ -17,7 +17,7 @@ public class Category {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private Long id;
 	
 	@Column(length = 100, nullable = false)
 	private String name;
@@ -33,11 +33,11 @@ public class Category {
 	@OneToMany(mappedBy = "category")
 	private List<CategoryArticle> categoryArticle;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
