@@ -12,6 +12,7 @@ import com.example.chienoki.domain.Article;
 
 @Controller
 public class ArticleController {
+
 	@Autowired
 	private ArticleService articleService;
 	

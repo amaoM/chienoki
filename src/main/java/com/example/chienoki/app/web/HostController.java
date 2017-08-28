@@ -12,6 +12,7 @@ import com.example.chienoki.domain.Host;
 
 @Controller
 public class HostController {
+
 	@Autowired
 	private HostService hostService;
 	
