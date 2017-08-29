@@ -29,10 +29,6 @@ public class RssBatchConfiguration {
 	
 	@Autowired
 	private RssDao rssDao;
-		
-	public void perform() {
-		
-	}
 	
 	/**
 	 * @return
