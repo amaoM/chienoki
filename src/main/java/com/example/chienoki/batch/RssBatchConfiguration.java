@@ -13,6 +13,10 @@ import org.springframework.context.annotation.Configuration;
 
 import com.example.chienoki.batch.dao.RssDao;
 
+/**
+ * @author amaomasashi
+ *
+ */
 @EnableBatchProcessing
 @Configuration
 public class RssBatchConfiguration {
@@ -30,6 +34,9 @@ public class RssBatchConfiguration {
 		
 	}
 	
+	/**
+	 * @return
+	 */
 	@Bean
 	public Job job() {
 		return jobs.get("articleImportJob")
@@ -38,6 +45,9 @@ public class RssBatchConfiguration {
 		        .build();
 	}
 	
+	/**
+	 * @return
+	 */
 	@Bean
 	public Step step1() {
 		return steps.get("step1")

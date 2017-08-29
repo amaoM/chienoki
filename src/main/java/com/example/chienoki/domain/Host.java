@@ -15,6 +15,10 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+/**
+ * @author amaomasashi
+ *
+ */
 @Entity
 public class Host {
 
@@ -41,42 +45,72 @@ public class Host {
 	@OneToMany(mappedBy = "host", orphanRemoval=true)
 	private List<Article> artciles;
 
+	/**
+	 * @return
+	 */
 	public Long getId() {
 		return id;
 	}
 
+	/**
+	 * @param id
+	 */
 	public void setId(Long id) {
 		this.id = id;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * @param name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getUrl() {
 		return url;
 	}
 
+	/**
+	 * @param url
+	 */
 	public void setUrl(String url) {
 		this.url = url;
 	}
 
+	/**
+	 * @return
+	 */
 	public Date getCreated() {
 		return created;
 	}
 
+	/**
+	 * @param created
+	 */
 	public void setCreated(Date created) {
 		this.created = created;
 	}
 
+	/**
+	 * @return
+	 */
 	public Date getUpdated() {
 		return updated;
 	}
 
+	/**
+	 * @param updated
+	 */
 	public void setUpdated(Date updated) {
 		this.updated = updated;
 	}

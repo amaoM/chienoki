@@ -13,6 +13,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+/**
+ * @author amaomasashi
+ *
+ */
 @Entity
 public class CategoryArticle {
 	@Id
@@ -35,42 +39,72 @@ public class CategoryArticle {
 	@Column(nullable = false, columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
 	private Date updated;
 
+	/**
+	 * @return
+	 */
 	public Integer getId() {
 		return id;
 	}
 
+	/**
+	 * @param id
+	 */
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
+	/**
+	 * @return
+	 */
 	public Category getCategory() {
 		return category;
 	}
 
+	/**
+	 * @param category
+	 */
 	public void setCategory(Category category) {
 		this.category = category;
 	}
 
+	/**
+	 * @return
+	 */
 	public Article getArtcile() {
 		return article;
 	}
 
+	/**
+	 * @param article
+	 */
 	public void setArtcile(Article article) {
 		this.article = article;
 	}
 	
+	/**
+	 * @return
+	 */
 	public Date getCreated() {
 		return created;
 	}
 
+	/**
+	 * @param created
+	 */
 	public void setCreated(Date created) {
 		this.created = created;
 	}
 
+	/**
+	 * @return
+	 */
 	public Date getUpdated() {
 		return updated;
 	}
 
+	/**
+	 * @param updated
+	 */
 	public void setUpdated(Date updated) {
 		this.updated = updated;
 	}

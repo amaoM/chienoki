@@ -12,6 +12,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+/**
+ * @author amaomasashi
+ *
+ */
 @Entity
 public class Category {
 	
@@ -37,38 +41,65 @@ public class Category {
 		return id;
 	}
 
+	/**
+	 * @param id
+	 */
 	public void setId(Long id) {
 		this.id = id;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * @param name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * @return
+	 */
 	public Date getCreated() {
 		return created;
 	}
 
+	/**
+	 * @param created
+	 */
 	public void setCreated(Date created) {
 		this.created = created;
 	}
 
+	/**
+	 * @return
+	 */
 	public Date getUpdated() {
 		return updated;
 	}
 
+	/**
+	 * @param updated
+	 */
 	public void setUpdated(Date updated) {
 		this.updated = updated;
 	}
 
+	/**
+	 * @return
+	 */
 	public List<CategoryArticle> getCategoryArticle() {
 		return categoryArticle;
 	}
 
+	/**
+	 * @param categoryArticle
+	 */
 	public void setCategoryArticle(List<CategoryArticle> categoryArticle) {
 		this.categoryArticle = categoryArticle;
 	}

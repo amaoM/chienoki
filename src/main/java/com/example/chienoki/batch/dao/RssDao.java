@@ -19,6 +19,10 @@ import com.example.chienoki.domain.ArticleRepository;
 import com.example.chienoki.domain.Host;
 import com.example.chienoki.domain.HostRepository;
 
+/**
+ * @author amaomasashi
+ *
+ */
 @Component
 public class RssDao {
 	
@@ -28,6 +32,11 @@ public class RssDao {
 	@Autowired
 	ArticleRepository articleRepository;
 	
+	/**
+	 * @throws ParserConfigurationException
+	 * @throws SAXException
+	 * @throws IOException
+	 */
 	public void registerArticlesFromRss() throws ParserConfigurationException, SAXException, IOException {
 		Iterable<Host> hosts = getHosts();
 		
@@ -39,10 +48,20 @@ public class RssDao {
 		}
 	}
 	
+	/**
+	 * @return
+	 */
 	private Iterable<Host> getHosts() {
 		return hostRepository.findAll();
 	}
 	
+	/**
+	 * @param host
+	 * @return
+	 * @throws ParserConfigurationException
+	 * @throws SAXException
+	 * @throws IOException
+	 */
 	private NodeList getArticles(Host host) throws ParserConfigurationException, SAXException, IOException {
 		NodeList itemList = null;
 		try {
@@ -61,6 +80,10 @@ public class RssDao {
 		return itemList;
 	}
 	
+	/**
+	 * @param itemList
+	 * @param host
+	 */
 	@Transactional
 	public void saveArticles(NodeList itemList, Host host) {
 		for (int i = 0; i < itemList.getLength(); i++) {

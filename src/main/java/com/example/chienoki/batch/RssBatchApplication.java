@@ -9,6 +9,10 @@ import org.springframework.batch.core.JobParametersBuilder;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.beans.factory.annotation.Autowired;
 
+/**
+ * @author amaomasashi
+ *
+ */
 @EnableScheduling
 public class RssBatchApplication {
 	
