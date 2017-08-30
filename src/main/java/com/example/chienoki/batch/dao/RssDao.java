@@ -39,12 +39,16 @@ public class RssDao {
      */
     public void registerArticlesFromRss() throws ParserConfigurationException, SAXException, IOException {
         Iterable<Host> hosts = getHosts();
-        
+
         for (Host host : hosts) {
             System.out.println(" === Host : " + host.getName() + " ===");
             NodeList itemList = getArticles(host);
-            System.out.println(" === itemList number : " + itemList.getLength() + " ===");
-            saveArticles(itemList, host);
+            if (itemList == null) {
+                System.out.println(" === itemList number : 0 ===");
+            } else {
+                System.out.println(" === itemList number : " + itemList.getLength() + " ===");
+                saveArticles(itemList, host);
+            }
         }
     }
 
