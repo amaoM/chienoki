@@ -17,23 +17,23 @@ import com.example.chienoki.domain.Article;
 @Controller
 public class ArticleController {
 
-	@Autowired
-	private ArticleService articleService;
-	
-	/**
-	 * @param pageNumber
-	 * @return
-	 */
-	@RequestMapping(value = "/articles", method = RequestMethod.GET)
-	public @ResponseBody Iterable<Article> getArticles(@RequestParam(name = "p", defaultValue = "1") int pageNumber) {
-		return articleService.getPage(pageNumber);
-	}
-	
-	/**
-	 * @param articleId
-	 */
-	@RequestMapping(value = "/articles/delete", method = RequestMethod.GET)
-	public void deleteArticle(@RequestParam(name = "id") Long articleId) {
-		articleService.deleteArticle(articleId);
-	}
+    @Autowired
+    private ArticleService articleService;
+
+    /**
+     * @param pageNumber
+     * @return
+     */
+    @RequestMapping(value = "/articles", method = RequestMethod.GET)
+    public @ResponseBody Iterable<Article> getArticles(@RequestParam(name = "p", defaultValue = "1") int pageNumber) {
+        return articleService.getPage(pageNumber);
+    }
+
+    /**
+     * @param articleId
+     */
+    @RequestMapping(value = "/articles/delete", method = RequestMethod.GET)
+    public void deleteArticle(@RequestParam(name = "id") Long articleId) {
+        articleService.deleteArticle(articleId);
+    }
 }

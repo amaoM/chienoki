@@ -20,36 +20,36 @@ import com.example.chienoki.batch.dao.RssDao;
 @EnableBatchProcessing
 @Configuration
 public class RssBatchConfiguration {
-	
-	@Autowired
-	private JobBuilderFactory jobs;
-	
-	@Autowired
-	private StepBuilderFactory steps;
-	
-	@Autowired
-	private RssDao rssDao;
-	
-	/**
-	 * @return
-	 */
-	@Bean
-	public Job job() {
-		return jobs.get("articleImportJob")
-				.incrementer(new RunIdIncrementer())
-				.start(step1())
-		        .build();
-	}
-	
-	/**
-	 * @return
-	 */
-	@Bean
-	public Step step1() {
-		return steps.get("step1")
-				.tasklet((stepContribution, chunkContext) -> {
-					rssDao.registerArticlesFromRss();
-					return RepeatStatus.FINISHED;
-				}).build();
-	}	
+
+    @Autowired
+    private JobBuilderFactory jobs;
+
+    @Autowired
+    private StepBuilderFactory steps;
+
+    @Autowired
+    private RssDao rssDao;
+
+    /**
+     * @return
+     */
+    @Bean
+    public Job job() {
+        return jobs.get("articleImportJob")
+                .incrementer(new RunIdIncrementer())
+                .start(step1())
+                .build();
+    }
+
+    /**
+     * @return
+     */
+    @Bean
+    public Step step1() {
+        return steps.get("step1")
+                .tasklet((stepContribution, chunkContext) -> {
+                    rssDao.registerArticlesFromRss();
+                    return RepeatStatus.FINISHED;
+                }).build();
+    }
 }
