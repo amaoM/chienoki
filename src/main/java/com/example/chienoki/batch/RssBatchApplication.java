@@ -24,7 +24,7 @@ public class RssBatchApplication {
     @Autowired
     Job job;
 
-    @Scheduled(cron = "*/60 * * * * *", zone = "Asia/Tokyo")
+    @Scheduled(cron = "* 0/30 * * * *", zone = "Asia/Tokyo")
     public void run() {
         System.out.println(" === Rss Batch started === ");
         try {
